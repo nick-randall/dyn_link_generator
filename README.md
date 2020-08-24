@@ -1,16 +1,5 @@
-# deep_links2
+dynamic link generator
 
-A new Flutter project.
+This app allows testing other apps' deep link functionality by providing a dynamic link that can be directed to open the other app.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To use it change the "Uri.parse" parameter in dynamic_links.dart to the other apps' expected link (in android manifest.xml on the other app)
