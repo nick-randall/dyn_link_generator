@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
       try {
         deepLink = await getInitialLink();
+        _incrementCounter();
       } catch (e) {
         print('getInitialLink ERROR');
         print(e);
@@ -60,24 +61,36 @@ class _MyHomePageState extends State<MyHomePage> {
       //initUniLinks();
       if (deepLink != null) {
         print(deepLink);
-        // _incrementCounter();
       }
     });
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            RaisedButton(
-                onPressed: dynamicLink, child: Text("create link for psi"))
-          ],
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                  onPressed: dynamicLink, child: Text("create link for psi")),
+              RaisedButton(
+                  onPressed: dynamicLinkForThisApp,
+                  child: Text("create link for this app")),
+              Text(
+                'link used to start this app:',
+              ),
+              Text(
+                '$deepLink',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+        )
 
-      // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        // This trailing comma makes auto-formatting nicer for build methods.
+        );
   }
 }

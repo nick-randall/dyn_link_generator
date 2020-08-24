@@ -34,3 +34,35 @@ Future<void> dynamicLink() async {
   myLink = await parameters.buildUrl();
   Share.share('$myLink');
 }
+
+Future<void> dynamicLinkForThisApp() async {
+  final DynamicLinkParameters parameters = DynamicLinkParameters(
+    uriPrefix: 'https://rabotnik.page.link',
+    link: Uri.parse('https://rabotnik.page.link/H3Ed'),
+    androidParameters: AndroidParameters(
+      packageName: 'au.com.cocreations.psiapp',
+      minimumVersion: 0,
+    ),
+    iosParameters: IosParameters(
+      bundleId: 'au.com.cocreations.psiapp',
+      minimumVersion: '0.0.0',
+      appStoreId: 'TBD... TODO',
+    ),
+    googleAnalyticsParameters: GoogleAnalyticsParameters(
+      campaign: 'xxexample-promo',
+      medium: 'xxsocial',
+      source: 'xxorkut',
+    ),
+    itunesConnectAnalyticsParameters: ItunesConnectAnalyticsParameters(
+      providerToken: 'xx123456',
+      campaignToken: 'xxexample-promo',
+    ),
+    socialMetaTagParameters: SocialMetaTagParameters(
+      title: 'Psi Telepathy Test',
+      description: 'Discover your psychic abilities.',
+    ),
+  );
+
+  myLink = await parameters.buildUrl();
+  Share.share('$myLink');
+}
